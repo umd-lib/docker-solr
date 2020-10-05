@@ -1,3 +1,13 @@
+# UMD Solr 4 Image
+Solr 4 is not available from official Solr docker images on the docker hub. We have cloned the official Solr docker repo to add the Solr 4 image.
+
+## Build procedure
+
+    cd 4.10.4/
+    docker build . -t docker.lib.umd.edu/solr:4.10.4
+    docker push -t docker.lib.umd.edu/solr:4.10.4
+
+---
 # Supported tags and respective `Dockerfile` links
 
 See [Docker Hub](https://hub.docker.com/_/solr?tab=tags) for a list of image tags available to pull.
