@@ -29,14 +29,15 @@ RUN set -ex; \
   sed -i -e 's/lsof -PniTCP:/lsof -t -PniTCP:/' /opt/solr/bin/solr; \
   if [ -f "/opt/solr/contrib/prometheus-exporter/bin/solr-exporter" ]; then chmod 0755 "/opt/solr/contrib/prometheus-exporter/bin/solr-exporter"; fi; \
   chown -R "$SOLR_USER:$SOLR_GROUP" /opt/solr /docker-entrypoint-initdb.d /opt/docker-solr; \
-  chown -R "$SOLR_USER:$SOLR_GROUP" /opt/mysolrhome;
+  chown -R "$SOLR_USER:$SOLR_GROUP" /opt/mysolrhome; \
+  cp /opt/solr/example/solr/solr.xml /opt/solr/server/solr/
 
 RUN chmod -R 777 /tmp/
 
 COPY --chown=solr:solr scripts /opt/docker-solr/scripts
 
 EXPOSE 8983
-WORKDIR /opt/solr
+WORKDIR /opt/solr/server/
 USER $SOLR_USER
 
 ENTRYPOINT ["docker-entrypoint.sh"]
