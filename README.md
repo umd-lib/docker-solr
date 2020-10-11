@@ -3,9 +3,16 @@ Solr 4 is not available from official Solr docker images on the docker hub. We h
 
 ## Build procedure
 
+    # switch to the directory
     cd 4.10.4/
-    docker build . -t docker.lib.umd.edu/solr:4.10.4
-    docker push -t docker.lib.umd.edu/solr:4.10.4
+
+    # build
+    docker build . -t docker.lib.umd.edu/solr:<VERSION>
+
+    # push
+    docker push -t docker.lib.umd.edu/solr:<VERSION>
+
+The image version would include both the Solr version as well as the UMD release version. For example, the first UMD release of the solr `4.10.4` will be `4.10.4-umd-1.0`
 
 ---
 # Supported tags and respective `Dockerfile` links
@@ -316,6 +323,16 @@ When a new version of Apache Solr is released, a new docker image can be release
 ## Issues
 
 Please report issues with this docker image on this [Github project](https://github.com/docker-solr/docker-solr).
+
+For general questions about Solr, see the [Community information](http://lucene.apache.org/solr/resources.html#community), in particular the solr-user mailing list.
+
+## Contributing
+
+If you want to contribute to Solr, see the [Solr Resources](http://lucene.apache.org/solr/resources.html#community).
+
+# History
+
+This project was started in 2015 by [Martijn Koster](https://github.com/makuk66). In 2019 maintainership and copyright was transferred to the Apache Lucene/Solr project. Many thanks to Martijn for all your contributions over the years!
 
 For general questions about Solr, see the [Community information](http://lucene.apache.org/solr/resources.html#community), in particular the solr-user mailing list.
 
